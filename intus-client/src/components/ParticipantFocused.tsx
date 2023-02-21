@@ -7,6 +7,7 @@ import { Link, useParams } from "react-router-dom";
 import { IParticipant } from "../types/IParticipant";
 import Header from "./Header";
 import ParticipantDiagnosesCard from "./ParticipantDiagnosesCard";
+import { AiOutlineArrowLeft } from "react-icons/ai";
 
 export default function Participant() {
   // Get the participant ID from the URL
@@ -31,7 +32,10 @@ export default function Participant() {
     <div>
       <Header />
       <Link to="/">
-        <Button className="back-button">Back</Button>
+        <Button className="back-button d-flex align-items-center gap-2">
+          <AiOutlineArrowLeft />
+          Back
+        </Button>
       </Link>
       <Container className="participants-container mb-3">
         <h2 className="diagnosis-participant-name">
