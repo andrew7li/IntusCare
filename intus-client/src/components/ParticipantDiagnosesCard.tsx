@@ -1,4 +1,3 @@
-import React from "react";
 import Card from "react-bootstrap/Card";
 
 import { IParticipant } from "../types/IParticipant";

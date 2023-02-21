@@ -1,13 +1,12 @@
 import { useEffect, useState } from "react";
 import { Button } from "react-bootstrap";
-import Card from "react-bootstrap/Card";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
+import { AiOutlineArrowLeft } from "react-icons/ai";
 import { Link, useParams } from "react-router-dom";
 import { IParticipant } from "../types/IParticipant";
 import Header from "./Header";
 import ParticipantDiagnosesCard from "./ParticipantDiagnosesCard";
-import { AiOutlineArrowLeft } from "react-icons/ai";
 
 export default function Participant() {
   // Get the participant ID from the URL

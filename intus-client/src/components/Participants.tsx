@@ -1,14 +1,9 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 // import "./App.scss";
-import Card from "react-bootstrap/Card";
-import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
-import { Link } from "react-router-dom";
-import { IParticipant } from "../types/IParticipant";
 import Header from "./Header";
 import ListOfParticipants from "./ListOfParticipants";
-import ParticipantCard from "./ParticipantCard";
 import ParticipantHeader from "./ParticipantHeader";
 
 // /**
