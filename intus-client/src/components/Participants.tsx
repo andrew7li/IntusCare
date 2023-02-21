@@ -7,6 +7,7 @@ import Row from "react-bootstrap/Row";
 import { Link } from "react-router-dom";
 import { IParticipant } from "../types/IParticipant";
 import Header from "./Header";
+import ParticipantCard from "./ParticipantCard";
 
 /**
  * Function to get the participant ID. Since the ID is not provided in the API,
@@ -40,6 +41,9 @@ function Participants() {
 
   // useEffect for sorting participants
   useEffect(() => {
+    // console.log("THIS USE EFFECT IS RUNNING!");
+    // console.log(sortParticipantOrder);
+    // console.log(sortICDCodesOrder);
     if (sortICDCodesOrder === "ascending") {
       if (sortParticipantOrder === "ascending") {
         setSortedParticipants(
@@ -149,7 +153,7 @@ function Participants() {
       <Container className="participants-container">
         <Row>
           <Col xs={8} className="d-flex align-items-center p-3 gap-2">
-            <p className="participants-column-headers">Participant Name</p>
+            <p className="participants-column-headers ps-4">Participant Name</p>
             {sortParticipantOrder === "ascending" ? (
               <img
                 src="/orderFilter_Up.png"
@@ -187,23 +191,10 @@ function Participants() {
           <p className="mb-3">No participants found!</p>
         ) : (
           sortedParticipants.map((participant) => (
-            <Link
-              to={`/participant/${getParticipantID(participant)}`}
+            <ParticipantCard
+              participant={participant}
               key={getParticipantID(participant)}
-            >
-              <Card className="participant-card mb-3 mx-4">
-                <Card.Body>
-                  <Row>
-                    <Col xs={8} className="participant-name">
-                      {participant.firstName} {participant.lastName}
-                    </Col>
-                    <Col xs={4} className="icd-code">
-                      {participant.diagnoses.length}
-                    </Col>
-                  </Row>
-                </Card.Body>
-              </Card>
-            </Link>
+            />
           ))
         )}
         {/* Empty row for spacing */}
