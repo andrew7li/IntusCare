@@ -1,7 +1,7 @@
 // Global styles for the app
 // Primary Palette
 $intusBlue: #4d7ef8;
-$intusBlue50: #4d7ef850;
+$intusBlue50: rgba(77, 126, 248, 50);
 $intusNavy: #062d8f;
 
 //Grayscale Palette
@@ -11,11 +11,11 @@ $inputBlack: #f1f2f3;
 $labels: #97999b;
 $body: #626275;
 $black: #000000;
-$black50: #00000050;
+$black50: rgba(0, 0, 0, 50);
 
 // Text
 h2 {
-  font-weight: bold;
+  font-weight: 700;
   font-size: 28;
   font-family: Mulish, Arial, sans-serif;
 }
@@ -30,6 +30,11 @@ p {
   font-weight: normal;
   font-size: 20;
   font-family: Mulish, Arial, sans-serif;
+  margin: 0;
+}
+
+img:hover {
+  cursor: pointer;
 }
 
 // Buttons
@@ -40,4 +45,44 @@ body {
 
 .header {
   background-color: $white;
+}
+
+.participants-header {
+  color: $intusNavy;
+  margin: 1.5rem 3rem 0;
+}
+
+.participants-container {
+  margin-top: 1rem;
+  background-color: $white;
+  box-shadow: 0px 0.2px 0.1rem 0.01rem $black50;
+  border: none;
+  border-radius: 20px;
+}
+
+.participants-column-headers {
+  color: $labels;
+}
+
+hr {
+  margin-top: 0;
+}
+
+.participant-card {
+  border-radius: 20px;
+}
+
+.participant-card:hover {
+  box-shadow: 0px 0.4px 0.4rem 0.06rem $intusBlue50;
+  border: 1.2px solid $intusBlue50;
+  border-radius: 20px;
+}
+
+.participant-name {
+  color: $body;
+  padding-left: 1rem;
+}
+
+.icd-code {
+  color: $intusNavy;
 }
