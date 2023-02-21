@@ -1,0 +1,43 @@
+// Global styles for the app
+// Primary Palette
+$intusBlue: #4d7ef8;
+$intusBlue50: #4d7ef850;
+$intusNavy: #062d8f;
+
+//Grayscale Palette
+$white: #ffffff;
+$offWhite: #e5e5e5;
+$inputBlack: #f1f2f3;
+$labels: #97999b;
+$body: #626275;
+$black: #000000;
+$black50: #00000050;
+
+// Text
+h2 {
+  font-weight: bold;
+  font-size: 28;
+  font-family: Mulish, Arial, sans-serif;
+}
+
+h3 {
+  font-weight: bold;
+  font-size: 20;
+  font-family: Mulish, Arial, sans-serif;
+}
+
+p {
+  font-weight: normal;
+  font-size: 20;
+  font-family: Mulish, Arial, sans-serif;
+}
+
+// Buttons
+
+body {
+  background-color: $offWhite;
+}
+
+.header {
+  background-color: $white;
+}
