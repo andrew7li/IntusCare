@@ -115,7 +115,7 @@ export default function ListOfParticipants(props: IListOfParticipantsProps) {
   }, [sortParticipantOrder, sortICDCodesOrder, participants]);
 
   return (
-    <>
+    <div className="participants-scrollable">
       {sortedParticipants.length === 0 ? (
         <p className="mb-3">No participants found!</p>
       ) : (
@@ -126,6 +126,6 @@ export default function ListOfParticipants(props: IListOfParticipantsProps) {
           />
         ))
       )}
-    </>
+    </div>
   );
 }

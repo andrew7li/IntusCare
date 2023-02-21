@@ -45,7 +45,7 @@ export default function ParticipantHeader(props: IParticipantHeaderProps) {
   };
 
   return (
-    <Row>
+    <Row className="participants-column-header sticky-top">
       <Col xs={8} className="d-flex align-items-center p-3 gap-2">
         <p className="participants-column-headers ps-4">Participant Name</p>
         {sortParticipantOrder === "ascending" ? (

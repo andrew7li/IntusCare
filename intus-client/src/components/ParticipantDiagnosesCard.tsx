@@ -13,7 +13,7 @@ export default function ParticipantDiagnosesCard(
   const { participant: participant } = props;
 
   return (
-    <>
+    <div className="diagnoses-scrollable">
       {participant?.diagnoses.map((diagnosis, idx) => {
         return (
           <Card className="diagnosis-card mb-3" key={idx}>
@@ -21,6 +21,6 @@ export default function ParticipantDiagnosesCard(
           </Card>
         );
       })}
-    </>
+    </div>
   );
 }

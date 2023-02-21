@@ -70,6 +70,11 @@ body {
   border-radius: 20px;
 }
 
+.participants-scrollable {
+  overflow-y: scroll;
+  height: 65vh;
+}
+
 .participants-column-headers {
   color: $labels;
 }
@@ -120,6 +125,11 @@ hr {
 .diagnosis-title {
   color: $labels;
   margin: 0 2rem 1rem;
+}
+
+.diagnoses-scrollable {
+  overflow-y: scroll;
+  height: 57vh;
 }
 
 .diagnosis-card {
