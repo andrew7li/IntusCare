@@ -73,6 +73,7 @@ hr {
 }
 
 .participant-card:hover {
+  cursor: pointer;
   box-shadow: 0px 0.4px 0.4rem 0.06rem $intusBlue50;
   border: 1.2px solid $intusBlue50;
   border-radius: 20px;
