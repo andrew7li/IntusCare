@@ -2,7 +2,7 @@
 
 ## Submission
 
-This is Andrew Li's submission for the Intus Care coding challenge. The deployed site can be found [here](https://andrew7li.github.io/IntusCare/).
+This is Andrew Li's submission for the Intus Care coding challenge for the Software Engineer Intern role. The deployed site can be found [here](https://andrew7li.github.io/IntusCare/).
 
 ## Basic Participant List Feature
 
