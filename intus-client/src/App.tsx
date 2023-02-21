@@ -13,6 +13,10 @@ function App() {
       path: "/participant/:id",
       element: <ParticipantFocused />,
     },
+    {
+      path: "*",
+      element: <h1>404 - Not Found</h1>,
+    },
   ]);
 
   return <RouterProvider router={BrowserRouter} />;

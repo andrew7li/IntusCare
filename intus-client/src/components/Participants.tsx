@@ -6,6 +6,7 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Card from "react-bootstrap/Card";
+import { Link } from "react-router-dom";
 
 // Types for participants JSON
 interface IDiagnosis {
@@ -20,6 +21,10 @@ interface IParticipant {
   lastName: string;
   patientNotes: string;
   phoneNumber: number;
+}
+
+function getParticipantID(participant: IParticipant) {
+  return participant.firstName + participant.lastName;
 }
 
 const tempParticipants = [
@@ -239,18 +244,23 @@ function Participants() {
         </Row>
         <hr />
         {sortedParticipants.map((participant) => (
-          <Card className="participant-card mb-3 mx-4">
-            <Card.Body>
-              <Row>
-                <Col xs={8} className="participant-name">
-                  {participant.firstName} {participant.lastName}
-                </Col>
-                <Col xs={4} className="icd-code">
-                  {participant.diagnoses.length}
-                </Col>
-              </Row>
-            </Card.Body>
-          </Card>
+          <Link
+            to={`/participant/${getParticipantID(participant)}`}
+            key={getParticipantID(participant)}
+          >
+            <Card className="participant-card mb-3 mx-4">
+              <Card.Body>
+                <Row>
+                  <Col xs={8} className="participant-name">
+                    {participant.firstName} {participant.lastName}
+                  </Col>
+                  <Col xs={4} className="icd-code">
+                    {participant.diagnoses.length}
+                  </Col>
+                </Row>
+              </Card.Body>
+            </Card>
+          </Link>
         ))}
         {/* Empty row for spacing */}
         <Row />
