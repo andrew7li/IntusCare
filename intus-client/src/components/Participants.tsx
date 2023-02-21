@@ -182,25 +182,30 @@ function Participants() {
           </Col>
         </Row>
         <hr />
-        {sortedParticipants.map((participant) => (
-          <Link
-            to={`/participant/${getParticipantID(participant)}`}
-            key={getParticipantID(participant)}
-          >
-            <Card className="participant-card mb-3 mx-4">
-              <Card.Body>
-                <Row>
-                  <Col xs={8} className="participant-name">
-                    {participant.firstName} {participant.lastName}
-                  </Col>
-                  <Col xs={4} className="icd-code">
-                    {participant.diagnoses.length}
-                  </Col>
-                </Row>
-              </Card.Body>
-            </Card>
-          </Link>
-        ))}
+
+        {sortedParticipants.length === 0 ? (
+          <p className="mb-3">No participants found!</p>
+        ) : (
+          sortedParticipants.map((participant) => (
+            <Link
+              to={`/participant/${getParticipantID(participant)}`}
+              key={getParticipantID(participant)}
+            >
+              <Card className="participant-card mb-3 mx-4">
+                <Card.Body>
+                  <Row>
+                    <Col xs={8} className="participant-name">
+                      {participant.firstName} {participant.lastName}
+                    </Col>
+                    <Col xs={4} className="icd-code">
+                      {participant.diagnoses.length}
+                    </Col>
+                  </Row>
+                </Card.Body>
+              </Card>
+            </Link>
+          ))
+        )}
         {/* Empty row for spacing */}
         <Row />
       </Container>
