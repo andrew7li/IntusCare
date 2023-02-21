@@ -15,4 +15,12 @@ app.get("/participants", (_, res) => {
   res.json(participants);
 });
 
+app.get("/participants/:id", (req, res) => {
+  const { id } = req.params;
+  const participant = participants.find((p) => {
+    return p.firstName + p.lastName === id;
+  });
+  res.json(participant);
+});
+
 module.exports = { app };

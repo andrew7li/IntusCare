@@ -1,85 +1,25 @@
 import { useEffect, useState } from "react";
-import reactLogo from "../assets/react.svg";
 // import "./App.scss";
-import Header from "./Header";
+import Card from "react-bootstrap/Card";
+import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
-import Card from "react-bootstrap/Card";
 import { Link } from "react-router-dom";
+import { IParticipant } from "../types/IParticipant";
+import Header from "./Header";
 
-// Types for participants JSON
-interface IDiagnosis {
-  icdCode: string;
-  timestamp: string;
-}
-interface IParticipant {
-  dateOfBirth: string;
-  diagnoses: IDiagnosis[];
-  firstName: string;
-  gender: string;
-  lastName: string;
-  patientNotes: string;
-  phoneNumber: number;
-}
-
+/**
+ * Function to get the participant ID. Since the ID is not provided in the API,
+ * I decided to use the first name and last name as the ID.
+ * @param participant the participant
+ * @returns the participant ID that is used for the Router
+ */
 function getParticipantID(participant: IParticipant) {
   return participant.firstName + participant.lastName;
 }
 
-const tempParticipants = [
-  {
-    dateOfBirth: "1990-01-01",
-    firstName: "John",
-    gender: "",
-    diagnoses: [
-      {
-        icdCode: "A00",
-        timestamp: "2021-01-01",
-      },
-      {
-        icdCode: "A01",
-        timestamp: "2021-01-01",
-      },
-    ],
-    lastName: "Doe",
-    patientNotes: "",
-    phoneNumber: 123456789,
-  },
-  {
-    dateOfBirth: "1990-01-01",
-    firstName: "Amazing",
-    gender: "",
-    diagnoses: [
-      {
-        icdCode: "A00",
-        timestamp: "2021-01-01",
-      },
-    ],
-    lastName: "Doe",
-    patientNotes: "",
-    phoneNumber: 123456789,
-  },
-  {
-    dateOfBirth: "1990-01-01",
-    firstName: "Zorro",
-    gender: "",
-    diagnoses: [
-      {
-        icdCode: "A00",
-        timestamp: "2021-01-01",
-      },
-    ],
-    lastName: "Doe",
-    patientNotes: "",
-    phoneNumber: 123456789,
-  },
-];
-
 function Participants() {
   // State variables
-  // const [participants, setParticipants] =
-  //   useState<IParticipant[]>(tempParticipants);
   const [participants, setParticipants] = useState<IParticipant[]>([]);
   const [sortParticipantOrder, setSortParticipantOrder] = useState<
     "ascending" | "descending"
@@ -100,8 +40,6 @@ function Participants() {
 
   // useEffect for sorting participants
   useEffect(() => {
-    // console.log("sortParticipantOrder", sortParticipantOrder);
-    // console.log("sortICDCodesOrder", sortICDCodesOrder);
     if (sortICDCodesOrder === "ascending") {
       if (sortParticipantOrder === "ascending") {
         setSortedParticipants(
@@ -180,12 +118,11 @@ function Participants() {
         );
       }
     }
-    // console.log("sortedParticipants", sortedParticipants);
   }, [sortParticipantOrder, sortICDCodesOrder, participants]);
 
-  console.log(participants);
-
-  // Handler for sorting participants
+  /**
+   * Handler for sorting participants
+   */
   const handleParticipantsSortClick = () => {
     if (sortParticipantOrder === "descending") {
       setSortParticipantOrder("ascending");
@@ -194,7 +131,9 @@ function Participants() {
     }
   };
 
-  // Handler for sorting ICD codes
+  /**
+   * Handler for sorting ICD codes
+   */
   const handleICDCodesSortClick = () => {
     if (sortICDCodesOrder === "descending") {
       setSortICDCodesOrder("ascending");
