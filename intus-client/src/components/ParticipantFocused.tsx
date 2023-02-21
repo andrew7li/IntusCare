@@ -6,10 +6,13 @@ import Row from "react-bootstrap/Row";
 import { Link, useParams } from "react-router-dom";
 import { IParticipant } from "../types/IParticipant";
 import Header from "./Header";
+import ParticipantDiagnosesCard from "./ParticipantDiagnosesCard";
 
 export default function Participant() {
+  // Get the participant ID from the URL
   const { id } = useParams<{ id: string }>();
 
+  // State variable
   const [participant, setParticipant] = useState<IParticipant>();
 
   // useEffect to fetch the participant
@@ -32,19 +35,13 @@ export default function Participant() {
       </Link>
       <Container className="participants-container mb-3">
         <h2 className="diagnosis-participant-name">
-          {participant?.firstName! + participant?.lastName}
+          {participant?.firstName} {participant?.lastName}
         </h2>
         <hr className="diagnosis-hr" />
         <p className="diagnosis-title">
           ICD Codes ({participant?.diagnoses.length})
         </p>
-        {participant?.diagnoses.map((diagnosis, idx) => {
-          return (
-            <Card className="diagnosis-card mb-3" key={idx}>
-              <Card.Body>{diagnosis.icdCode}</Card.Body>.
-            </Card>
-          );
-        })}
+        <ParticipantDiagnosesCard participant={participant} />
         <Row />
       </Container>
     </div>
